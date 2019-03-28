@@ -7,5 +7,18 @@ namespace Multas.Models
 {
     public class Multas
     {
+        //id, data, valor, infracao, FK viatura, FK agente, FK condutor
+
+        public int Id { get; set; }
+
+        public DateTime Data { get; set; }
+
+        public decimal valor { get; set; }
+
+        public string Infracao { get; set; }
+
+
     }
 }
+
+
