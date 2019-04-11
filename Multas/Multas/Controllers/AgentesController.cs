@@ -17,7 +17,8 @@ namespace Multas.Controllers
         // GET: Agentes
         public ActionResult Index()
         {
-            return View(db.Agentes.ToList());
+            var listaAgentes = db.Agentes.OrderBy(a=>a.Nome).ToList();
+            return View(listaAgentes);
         }
 
         // GET: Agentes/Details/5
@@ -46,16 +47,16 @@ namespace Multas.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Nome,Esquadra,Fotografia")] Agentes agentes)
+        public ActionResult Create([Bind(Include = "ID,Nome,Esquadra,Fotografia")] Agentes agente)
         {
             if (ModelState.IsValid)
             {
-                db.Agentes.Add(agentes);
+                db.Agentes.Add(agente);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(agentes);
+            return View(agente);
         }
 
         // GET: Agentes/Edit/5
