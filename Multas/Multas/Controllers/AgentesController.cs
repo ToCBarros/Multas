@@ -44,6 +44,7 @@ namespace Multas.Controllers
                 //return HttpNotFound();
                 return RedirectToAction("Index");
             }
+            //envia para a view os dados do agente que foi procurado e encontrado
             return View(agentes);
         }
 
